@@ -35,7 +35,7 @@ namespace ConsoleApp62
     {
         Seat seat = new Seat();
         Discount discount = new Discount();
-        Customer customer = new Customer();
+        Customer customer = new Customer(p1, p2);
 
     }
 
@@ -50,13 +50,18 @@ namespace ConsoleApp62
         {
             this.name = name;
             this.surname = surname;
-
+        }
+        public Customer(string name, string surname, string email, string password)
+        {
+            this.name = name;
+            this.surname = surname;
+            this.email = email;
+            this.password = password;
         }
     }
-
     public class Discount
     {
-
+            public enum wage {Student = 51, Uczen = 37, Krwiodawca = 95}
     }
 
     public class Person
