@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,25 @@ namespace ConsoleApp62
 {
     public class Train
     {
+        public int id { get; set; }
+        public string Title { get; set; }
+        List<City> stations = new List<City>();
         List<Car> cars = new List<Car>();
     }
+
+    public class TrainDbContext : DbContext
+    {
+        public DbSet<Train> Trains { get; set; }
+    }
+    public class City
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+    }
+
     public class Car
     {
+        public int id { get; set; }
         List<Seat> seats = new List<Seat>();
     }
     public class Seat
@@ -29,13 +45,13 @@ namespace ConsoleApp62
     {
         List<Ticket_For_Seat> ticket_For_Seats = new List<Ticket_For_Seat>();
         Payment payment = new Payment();
-        Customer customer = new Customer();        
+        Customer customer = new Customer("Jan", "Kowalski", "jankowalski@gmail.com", "admin");        
     }
     public class Ticket_For_Seat
     {
         Seat seat = new Seat();
         Discount discount = new Discount();
-        Customer customer = new Customer(p1, p2);
+        Customer customer = new Customer("Marcin", "Kotecki");
 
     }
 
