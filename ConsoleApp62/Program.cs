@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -108,7 +110,17 @@ namespace ConsoleApp62
             train1.Title = "Pociag";
             train1.RelationID = 1;
             train1.CarsID = 1;
-            Console.ReadKey();
+            using (var context = new TrainDbContext())
+            {
+                using (var dbContextTransaction = context.Database.BeginTransaction())
+                {
+                    context.Trains.Add(train1);
+                    context.SaveChanges();
+                    dbContextTransaction.Commit();
+                    Console.ReadKey();
+                }
+            }
+
         }
     }
 }
