@@ -11,6 +11,8 @@ namespace ConsoleApp62
     {
         public int id { get; set; }
         public string Title { get; set; }
+        public int RelationID { get; set; }
+        public int CarsID { get; set; }
         List<City> stations = new List<City>();
         List<Car> cars = new List<Car>();
     }
@@ -101,18 +103,11 @@ namespace ConsoleApp62
     {
         static void Main(string[] args)
         {
-            List<Person> list = new List<Person>();
-            list.Add(new Person(1, "Jan", "Kowalski", 56, 2900));
-            list.Add(new Person(2, "Joanna", "Kowalska", 34, 4900));
-            list.Add(new Person(3, "Janina", "Kowal", 26, 1900));
-            list.Add(new Person(4, "Tomasz", "Wawalski", 34, 3400));
-            list.Add(new Person(5, "Oskar", "Janczyk", 36, 7900));
-            list.Add(new Person(6, "Olgierd", "Lomik", 56, 3458));
-            var query = list.Where(n => n.salary > 3000).OrderBy(n => n.surname).ToList();
-            foreach(var item in query)
-            {
-                Console.WriteLine("{0} {1} - pensja {2}", item.name, item.surname, item.salary);
-            }
+            Train train1 = new Train();
+            train1.id = 1;
+            train1.Title = "Pociag";
+            train1.RelationID = 1;
+            train1.CarsID = 1;
             Console.ReadKey();
         }
     }

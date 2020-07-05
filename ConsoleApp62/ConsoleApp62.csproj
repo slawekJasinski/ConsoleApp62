@@ -57,6 +57,10 @@
     <Compile Include="Migrations\202007041254397_CreateTrain.designer.cs">
       <DependentUpon>202007041254397_CreateTrain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007050853533_CreateTrain1.cs" />
+    <Compile Include="Migrations\202007050853533_CreateTrain1.designer.cs">
+      <DependentUpon>202007050853533_CreateTrain1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,6 +74,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202007041254397_CreateTrain.resx">
       <DependentUpon>202007041254397_CreateTrain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007050853533_CreateTrain1.resx">
+      <DependentUpon>202007050853533_CreateTrain1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
