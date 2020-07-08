@@ -23,10 +23,16 @@ namespace ConsoleApp62
     {
         public DbSet<Train> Trains { get; set; }
     }
+
     public class City
     {
         public int id { get; set; }
         public string name { get; set; }
+    }
+
+    public class CityDbContext : DbContext
+    {
+        public DbSet<City> Cities { get; set; }
     }
 
     public class Car
@@ -47,9 +53,14 @@ namespace ConsoleApp62
     }
     public class Ticket
     {
+        public int id { get; set; }
         List<Ticket_For_Seat> ticket_For_Seats = new List<Ticket_For_Seat>();
         Payment payment = new Payment();
         Customer customer = new Customer("Jan", "Kowalski", "jankowalski@gmail.com", "admin");        
+    }
+    public class TicketDbContext : DbContext
+    {
+        public DbSet<Ticket> Tickets { get; set; }
     }
     public class Ticket_For_Seat
     {
@@ -105,22 +116,24 @@ namespace ConsoleApp62
     {
         static void Main(string[] args)
         {
-            Train train1 = new Train();
-            train1.id = 1;
-            train1.Title = "Pociag";
-            train1.RelationID = 1;
-            train1.CarsID = 1;
+            Train train2 = new Train();
+            train2.id = 2;
+            train2.Title = "Pociag2";
+            train2.RelationID = 2;
+            train2.CarsID = 2;
+            City poznan = new City();
+            poznan.id = 1;
+            poznan.name = "Poznan";
             using (var context = new TrainDbContext())
             {
                 using (var dbContextTransaction = context.Database.BeginTransaction())
                 {
-                    context.Trains.Add(train1);
+                    context.Trains.Add(train2);
                     context.SaveChanges();
                     dbContextTransaction.Commit();
                     Console.ReadKey();
                 }
             }
-
         }
     }
 }
