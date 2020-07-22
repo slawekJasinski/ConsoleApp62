@@ -13,26 +13,21 @@ namespace ConsoleApp62
     {
         public int id { get; set; }
         public string Title { get; set; }
-        public int RelationID { get; set; }
-        public int CarsID { get; set; }
-        List<City> stations = new List<City>();
-        List<Car> cars = new List<Car>();
+        public virtual City Stations { get; set; }
+        public virtual Car cars { get; set; }
     }
 
     public class TrainDbContext : DbContext
     {
         public DbSet<Train> Trains { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
     }
 
     public class City
     {
         public int id { get; set; }
         public string name { get; set; }
-    }
-
-    public class CityDbContext : DbContext
-    {
-        public DbSet<City> Cities { get; set; }
     }
 
     public class Car
@@ -58,10 +53,7 @@ namespace ConsoleApp62
         Payment payment = new Payment();
         Customer customer = new Customer("Jan", "Kowalski", "jankowalski@gmail.com", "admin");        
     }
-    public class TicketDbContext : DbContext
-    {
-        public DbSet<Ticket> Tickets { get; set; }
-    }
+
     public class Ticket_For_Seat
     {
         Seat seat = new Seat();
@@ -116,22 +108,30 @@ namespace ConsoleApp62
     {
         static void Main(string[] args)
         {
-            Train train2 = new Train();
-            train2.id = 2;
-            train2.Title = "Pociag2";
-            train2.RelationID = 2;
-            train2.CarsID = 2;
-            City poznan = new City();
-            poznan.id = 1;
-            poznan.name = "Poznan";
-            using (var context = new TrainDbContext())
+            while (true)
             {
-                using (var dbContextTransaction = context.Database.BeginTransaction())
+                Train train = new Train();
+                Console.WriteLine("id");
+                train.id = int.Parse(Console.ReadLine());
+                Console.WriteLine("nazwa");
+                train.Title = Console.ReadLine();
+                City poznan = new City();
+                poznan.id = 1;
+                poznan.name = "Poznan";
+                Car car1 = new Car();
+                car1.id = 1;
+                Car car2 = new Car();
+                car2.id = 2;
+                using (var context = new TrainDbContext())
                 {
-                    context.Trains.Add(train2);
-                    context.SaveChanges();
-                    dbContextTransaction.Commit();
-                    Console.ReadKey();
+                    using (var dbContextTransaction = context.Database.BeginTransaction())
+                    {
+                        context.Trains.Add(train);
+                        context.SaveChanges();
+                        dbContextTransaction.Commit();
+                        Console.WriteLine("ok");
+                        Console.ReadKey();
+                    }
                 }
             }
         }

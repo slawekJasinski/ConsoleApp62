@@ -53,29 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202007041254397_CreateTrain.cs" />
-    <Compile Include="Migrations\202007041254397_CreateTrain.designer.cs">
-      <DependentUpon>202007041254397_CreateTrain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007050853533_CreateTrain1.cs" />
-    <Compile Include="Migrations\202007050853533_CreateTrain1.designer.cs">
-      <DependentUpon>202007050853533_CreateTrain1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007081716039_CreateCity.cs" />
-    <Compile Include="Migrations\202007081716039_CreateCity.designer.cs">
-      <DependentUpon>202007081716039_CreateCity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007081718070_CreateTicket.cs" />
-    <Compile Include="Migrations\202007081718070_CreateTicket.designer.cs">
-      <DependentUpon>202007081718070_CreateTicket.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007081736469_CreateCity1.cs" />
-    <Compile Include="Migrations\202007081736469_CreateCity1.designer.cs">
-      <DependentUpon>202007081736469_CreateCity1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007081737346_CreateTicket1.cs" />
-    <Compile Include="Migrations\202007081737346_CreateTicket1.designer.cs">
-      <DependentUpon>202007081737346_CreateTicket1.cs</DependentUpon>
+    <Compile Include="Migrations\202007131803304_CreateTrain.cs" />
+    <Compile Include="Migrations\202007131803304_CreateTrain.designer.cs">
+      <DependentUpon>202007131803304_CreateTrain.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -88,23 +68,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202007041254397_CreateTrain.resx">
-      <DependentUpon>202007041254397_CreateTrain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007050853533_CreateTrain1.resx">
-      <DependentUpon>202007050853533_CreateTrain1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007081716039_CreateCity.resx">
-      <DependentUpon>202007081716039_CreateCity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007081718070_CreateTicket.resx">
-      <DependentUpon>202007081718070_CreateTicket.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007081736469_CreateCity1.resx">
-      <DependentUpon>202007081736469_CreateCity1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007081737346_CreateTicket1.resx">
-      <DependentUpon>202007081737346_CreateTicket1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202007131803304_CreateTrain.resx">
+      <DependentUpon>202007131803304_CreateTrain.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

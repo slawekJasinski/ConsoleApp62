@@ -7,13 +7,13 @@ namespace ConsoleApp62.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class CreateCity : IMigrationMetadata
+    public sealed partial class CreateTrain : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CreateCity));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CreateTrain));
         
         string IMigrationMetadata.Id
         {
-            get { return "202007081716039_CreateCity"; }
+            get { return "202007131803304_CreateTrain"; }
         }
         
         string IMigrationMetadata.Source
