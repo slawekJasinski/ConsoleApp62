@@ -6,6 +6,8 @@ using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace ConsoleApp62
 {
@@ -17,11 +19,16 @@ namespace ConsoleApp62
         public virtual Car cars { get; set; }
     }
 
-    public class TrainDbContext : DbContext
+    public class TrainDbContext : System.Data.Entity.DbContext
     {
-        public DbSet<Train> Trains { get; set; }
-        public DbSet<City> Cities { get; set; }
-        public DbSet<Ticket> Tickets { get; set; }
+        public System.Data.Entity.DbSet<Train> Trains { get; set; }
+        public System.Data.Entity.DbSet<City> Cities { get; set; }
+        public System.Data.Entity.DbSet<Ticket> Tickets { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Train>().HasKey(x => x.id);
+
+        }
     }
 
     public class City
@@ -58,7 +65,7 @@ namespace ConsoleApp62
     {
         Seat seat = new Seat();
         Discount discount = new Discount();
-        Customer customer = new Customer("Marcin", "Kotecki");
+        Customer customer = new Customer("Marcin", "Kotecki"); 
 
     }
 
@@ -118,8 +125,10 @@ namespace ConsoleApp62
                 City poznan = new City();
                 poznan.id = 1;
                 poznan.name = "Poznan";
+                train.Stations = poznan;
                 Car car1 = new Car();
                 car1.id = 1;
+                train.cars = car1;
                 Car car2 = new Car();
                 car2.id = 2;
                 using (var context = new TrainDbContext())
